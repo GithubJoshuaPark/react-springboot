@@ -7,10 +7,18 @@
 ### 2. 프로젝트 구조
 - 프로젝트 구조는 다음과 같습니다.
 
-1. React (front-end)
+가. React (front-end)
+```bash
+   npx create-react-app studentfront --template typescript
+   cd studentfront
+```
 
-2. SpringBoot (back-end)
+---
+나. SpringBoot (back-end)
    ![ref springInitializer](spring_initializer.png)
+   ![ref student add, getall](student_cr.png)
+   ![ref student get, delete](student_cr1.png)
 
-3. MySQL (database)
+다. MySQL (database)
    - sqluser/password
+   - table: student (id, name, address)
