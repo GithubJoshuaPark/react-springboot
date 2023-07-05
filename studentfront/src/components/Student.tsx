@@ -55,7 +55,7 @@ const Student: React.FC = () => {
   return (
     <Container>
       <Paper elevation={3} style={paperStyle}>
-        <h1 style={{ color: "bule" }}>Add Student</h1>
+        <h1 style={{ color: "bule" }}>Add Customer</h1>
         <Box
           component="form"
           sx={{
@@ -88,7 +88,7 @@ const Student: React.FC = () => {
       </Paper>
 
       <Paper elevation={3} style={{...paperStyle, textAlign: "left"}}>
-        <h1 style={{ color: "bule", textAlign: "center" }}>Student List</h1>
+        <h1 style={{ color: "bule", textAlign: "center" }}>Customer List</h1>
         {students.length && students.map((student: StudentData) => (
             <Paper key={student.id} style={{marginTop: "1rem"}}>
               {student.id}<br/>

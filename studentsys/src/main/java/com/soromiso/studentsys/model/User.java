@@ -17,12 +17,13 @@ import lombok.ToString;
 @Entity
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Student extends BaseEntity {
+public class User extends BaseEntity{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  private Long id;
 
-  private String name;
+  private String username;
   private String address;
-
+  private String name;
+  private String email;
 }
