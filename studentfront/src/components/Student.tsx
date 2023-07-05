@@ -89,13 +89,30 @@ const Student: React.FC = () => {
 
       <Paper elevation={3} style={{...paperStyle, textAlign: "left"}}>
         <h1 style={{ color: "bule", textAlign: "center" }}>Customer List</h1>
-        {students.length && students.map((student: StudentData) => (
-            <Paper key={student.id} style={{marginTop: "1rem"}}>
-              {student.id}<br/>
-              {student.name}<br/>
-              {student.address}<br/>
-            </Paper>
-          ))}
+
+        <div className="container">
+          <div className="py-4">
+            <table className="table border shadow">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Addr</th>
+                </tr>
+              </thead>
+              <tbody>
+                {students.length && students.map((student: StudentData) => (
+                  <tr key={student.id} style={{marginTop: "1rem"}}>
+                    <th scope="row">{student.id}</th>
+                    <td>{student.name}</td>
+                    <td>{student.address}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </Paper>
     </Container>
   );

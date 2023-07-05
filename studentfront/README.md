@@ -56,6 +56,7 @@ npm i --save-dev @types/styled-components
 npm i @mui/icons-material @mui/material @emotion/styled @emotion/react
 npm i @material-ui/core @material-ui/icons
 npm i bootstrap
+npm i axios
 ```
 
 
