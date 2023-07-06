@@ -9,4 +9,6 @@ public interface UserService {
   public List<User> getAllUsers();
   public void deleteUser(Long id);
   public User updateUser(User user);
+  public User getUserById(Long id);
+  public boolean isUserExist(Long id);
 }

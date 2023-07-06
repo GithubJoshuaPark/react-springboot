@@ -1,7 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Link, useHref } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { User } from "../../datatypes/constref";
 import axios from "axios";
 
 const AddUser: React.FC = () => {

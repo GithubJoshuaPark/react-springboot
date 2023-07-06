@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { User } from "../datatypes/constref";
+import { Link } from "react-router-dom";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const Home: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -10,6 +13,25 @@ const Home: React.FC = () => {
     console.log(result);
     setUsers(result.data.reverse());
   };
+
+  const deleteUser = async (id: number) => {
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: async () => {
+            await axios.delete(`http://localhost:9090/api/v1/user/delete/${id}`);
+            loadUsers();
+          }
+        },
+        {
+          label: 'No',
+        }
+      ]
+    });
+  }
 
   useEffect(() => {
     console.log("Hello World");
@@ -37,9 +59,9 @@ const Home: React.FC = () => {
                 <td>{user?.address}</td>
                 <td>{user?.email}</td>
                 <td>
-                  <button className="btn btn-primary mx-2">View</button>
-                  <button className="btn btn-outline-primary mx-2">Edit</button>
-                  <button className="btn btn-danger mx-2">Delete</button>
+                  <Link to={`/viewuser/${user.id}`} className="btn btn-primary mx-2">View</Link>
+                  <Link to={`/edituser/${user.id}`} className="btn btn-outline-primary mx-2">Edit</Link>
+                  <button className="btn btn-danger mx-2" onClick={() => deleteUser(user.id)}>Delete</button>
                 </td>
               </tr>
             ))}
