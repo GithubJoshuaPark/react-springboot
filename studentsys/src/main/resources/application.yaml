@@ -22,7 +22,7 @@ spring:
     url: jdbc:mysql://localhost:3306/studentsys
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: sqluser
-    password: password
+    password: G0dismyL0rd1!
 
 logging:
   level:

@@ -1,4 +1,4 @@
-package com.soromiso.jwtex.user;
+package com.soromiso.jwtex.domain.user;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.soromiso.jwtex.domain.enums.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -61,6 +63,10 @@ public class User implements UserDetails{
   @Override
   public boolean isEnabled() {
     return true;
+  }
+  @Override
+  public String getPassword() {
+    return password;
   }
 
 }
