@@ -23,3 +23,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: sqluser
     password: password
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
