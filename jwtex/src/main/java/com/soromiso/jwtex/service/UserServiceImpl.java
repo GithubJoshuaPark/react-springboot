@@ -2,6 +2,7 @@ package com.soromiso.jwtex.service;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.soromiso.jwtex.domain.user.User;
@@ -48,4 +49,8 @@ public class UserServiceImpl implements UserService{
         userRepository.deleteById(id);
     }
     
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("email is not found"));
+    }
 }
