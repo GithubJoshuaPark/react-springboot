@@ -24,6 +24,14 @@ spring:
     username: sqluser
     password: G0dismyL0rd1!
 
+application:
+  security:
+    jwt:
+      secret-key: LBjdLr3e1PeayiSVphUKpLyJR4N7U2cd347MfUCBfyA
+      expiration: 86400000 # 1 day
+      refresh-token:
+        expiration: 60480000 # 1 week
+
 logging:
   level:
     org:

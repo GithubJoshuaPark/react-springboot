@@ -1,18 +1,20 @@
 package com.soromiso.jwtex.dto;
 
+import com.soromiso.jwtex.domain.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class RegisterRequest {
 
     private String firstname;
     private String lastname;
     private String email;
     private String password;
+    private Role role;
 }

@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -16,6 +17,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.soromiso.jwtex.domain.enums.Role;
+import com.soromiso.jwtex.domain.token.Token;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,7 +33,7 @@ import lombok.NoArgsConstructor;
 public class User implements UserDetails{
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Integer id;
   private String firstname;
   private String lastname;
   private String email; // getUsername
@@ -40,6 +42,9 @@ public class User implements UserDetails{
   @Enumerated(EnumType.STRING)
   private Role role;
 
+  @OneToMany(mappedBy = "user")
+  private List<Token> tokens;
+  
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return List.of(new SimpleGrantedAuthority(role.name()));
