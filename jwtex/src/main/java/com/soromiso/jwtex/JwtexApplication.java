@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.soromiso.jwtex.authService.AuthenticationService;
-import com.soromiso.jwtex.domain.enums.Gender;
 import com.soromiso.jwtex.domain.student.Student;
 import com.soromiso.jwtex.dto.RegisterRequest;
 import com.soromiso.jwtex.service.StudentService;

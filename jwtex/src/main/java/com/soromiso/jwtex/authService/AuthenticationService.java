@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soromiso.jwtex.domain.enums.Role;
 import com.soromiso.jwtex.domain.enums.TokenType;
 import com.soromiso.jwtex.domain.token.Token;
 import com.soromiso.jwtex.domain.user.User;
@@ -53,7 +52,7 @@ public class AuthenticationService {
         var savedUser = userService.save(user);       
         var jwtToken = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(user);
-        saveUserToken(savedUser, jwtToken);
+        saveUserToken(savedUser, jwtToken); 
 
         return AuthenticationResponse.builder()
             .accessToken(jwtToken)
@@ -90,6 +89,7 @@ public class AuthenticationService {
     private void saveUserToken(User user, String jwtToken) {
         var token = Token.builder()
                          .user(user)
+                         .token(jwtToken)
                          .tokenType(TokenType.BEARER)
                          .expired(false)
                          .revoked(false)

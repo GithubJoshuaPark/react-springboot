@@ -4,7 +4,7 @@ server:
 spring:
   mvc:
     pathmatch:
-      matching-strategy: ant_path_matcher
+      matching-strategy: ant-path-matcher
   h2:
     console:
       enabled: true
@@ -12,7 +12,7 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        format_sql: true
+        format-sql: true
     generate-ddl: true
     hibernate:
       ddl-auto: update

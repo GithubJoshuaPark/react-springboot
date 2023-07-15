@@ -35,18 +35,18 @@ public class UserController {
     }
 
     @GetMapping("/get/{id}")
-    public User getUserById(@PathVariable Long id) {
+    public User getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
     }
 
     @PutMapping("/update/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public User updateUser(@PathVariable Integer id, @RequestBody User user) {
         if(!userService.existsById(id)) throw new UserNotFoundException(id);
         return userService.updateUser(id, user);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Integer id) {
         if(!userService.existsById(id)) throw new UserNotFoundException(id);
         userService.deleteUser(id);
     }

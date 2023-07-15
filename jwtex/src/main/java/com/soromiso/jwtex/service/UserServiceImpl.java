@@ -28,23 +28,23 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean existsById(Long id) {
+    public boolean existsById(Integer id) {
         return userRepository.existsById(id);
     }
 
     @Override
-    public User getUserById(Long id) {
+    public User getUserById(Integer id) {
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @Override
-    public User updateUser(Long id, User user) {
+    public User updateUser(Integer id, User user) {
         if(!userRepository.existsById(id)) throw new UserNotFoundException(id);
         return userRepository.save(user);
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUser(Integer id) {
         if(!userRepository.existsById(id)) throw new UserNotFoundException(id);
         userRepository.deleteById(id);
     }
